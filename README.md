@@ -13,3 +13,4 @@
 
 7.this one is the system commond ll {SYSTEM}
 
+8.this one is the a function that adjusts the console size  {SYSTEM}
