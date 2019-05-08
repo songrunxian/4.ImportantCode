@@ -1,3 +1,5 @@
+my_shell is the complete project1 and the   XXXXXXXXXX{SYSTEM} are the important parts of it 
+
 1.the first is print like this : srx@ubuntu:home/haizei   with color  {SYSTEM}
                                  username@hostname:dir   
 2.the second is to list the common outcome formats   such as color size of the font  {SYSTEM}
