@@ -8,6 +8,7 @@
 #include <stdio.h> 
 #include <sys/types.h>
 #include <sys/stat.h>
+#include <sys/ioctl.h>
 #include <unistd.h>
 #include <stdlib.h>
 #include <pwd.h>
@@ -18,9 +19,10 @@
 #include <dirent.h>
 #include <signal.h>
 #include <string.h>
+#include <termios.h>
 
-#define BUF_SIZE 64
-#define PATH_SIZE 64
+#define BUF_SIZE 256
+#define PATH_SIZE 256
 #define PRINT_FONT_RED  printf("\033[31m"); //红色
 #define PRINT_FONT_YEL  printf("\033[33m"); //黄色
 #define MAX_CMD 1000
@@ -129,16 +131,35 @@ void show_attr(char *name)
     printf(" %s\n",name); 
 }
 
+void sort_name(char name[PATH_SIZE][PATH_SIZE],int len)
+{
+  char str[PATH_SIZE] = {'\0'};
+  int i,j;
+  int flag = 1;
+
+  for(i=0; i<len && flag; ++i)
+  {
+    flag = 0;
+    for(j=len-1; j> i; --j)
+    {
+      if(0 < strcmp(name[j],name[j-1]))
+      {
+        strcpy(str,name[j]);
+        strcpy(name[j],name[j-1]);
+        strcpy(name[j-1],str);
+        flag = 1;
+      }
+    }
+  }
+}
+
 int print(char *str)
 {
-  char path[PATH_SIZE];
-  char name[PATH_SIZE][PATH_SIZE];
+  char path[PATH_SIZE] = {'\0'};
+  char name[PATH_SIZE][PATH_SIZE] = {'\0'};
   DIR * dir;
   struct dirent *dir_info;
   int i =0;
-
-  memset(path,'\0',PATH_SIZE*sizeof(char) );
-  memset(name,'\0',PATH_SIZE*sizeof(char) );
 
   getcwd(path,PATH_SIZE);
   dir=opendir(path);
@@ -146,11 +167,31 @@ int print(char *str)
     strcpy(name[i++],dir_info->d_name);
 
   closedir(dir);
-
+  sort_name(name,i);
+  
   if( !strcmp(str,".") )
   {
-    while(--i>=0)
-      printf("%s \n",name[i]);
+    int l = i;
+    int length = 0;
+    int parts_wid = 0;
+    int parts_len = 0;
+    while(--i>=0){
+        if(strlen(name[i]) > length){
+            length = strlen(name[i]);
+        }
+    }
+    struct winsize size;
+    ioctl(STDIN_FILENO, TIOCGWINSZ, &size);
+    parts_wid = size.ws_col / length;
+    parts_len = size.ws_row;
+    for(int k = 0; k < parts_len; k++){
+       for(int j = 0; (j < parts_wid) && (l >= 0); j++){
+              --l;
+              printf("%-24s",name[l]);
+              //printf("%d\t",0);
+       }
+       printf("\n");  
+    }
   }
 
   if( !strcmp(str,"a") )
