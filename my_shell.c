@@ -35,7 +35,8 @@ typedef struct _input_type{
 input_type input[] = {
     {"exit" ,4},
     {"cd" , 2},
-    {"ls" , 2}
+    {"ls" , 2},
+    {"cp" , 2}
 };
 
 int cds(const char *p){
@@ -260,6 +261,64 @@ int lss(const char *p)
   return res;
 }
 
+int cpp (const char *p) {
+    //printf("this is cp cmd\n");
+    int res = 0;
+    size_t count = 0;
+    int fd_src, fd_des;
+    char *start ,*end;
+    char src[PATH_SIZE] , des[PATH_SIZE];
+    char buf[BUF_SIZE];
+
+    memset(src ,'\0', PATH_SIZE);
+    memset(des ,'\0', PATH_SIZE);
+    memset(buf ,'\0', BUF_SIZE);
+
+    p += 3;
+    start = strchr(p,' ');
+    end = strchr(p, '\n');
+    
+    strncpy(src,p,start - p);
+    p += start -p +1;
+    strncpy(des,p,end - start -1);
+
+    fd_src = open(src, O_RDONLY);
+    if(fd_src == -1){
+        printf("can't open file:%s\n",src);
+        res = 1;
+    }
+   
+    fd_des = open(des,O_WRONLY|O_CREAT,S_IRWXU|S_IRGRP|S_IROTH);
+    if(fd_des == -1) {
+        printf ("can't open file :%s \n" , des);
+        res = -1;
+    }
+
+    while(0 != (count = read(fd_src ,buf , BUFSIZ))){
+        if(-1 == count){
+             printf("reading file failed\n");
+             res = 1;
+             break;
+        }
+
+        if(count != write(fd_des,buf,count)){
+             printf("writing files failed\n");
+             res = 1;
+             break;
+        }
+   }
+   if(-1 == close(fd_src)){
+        printf("close file: %s failed \n",src);
+        res = 1;
+   }
+   if(-1 == close(fd_des)){
+        printf("close file :%s failed\n",des);
+        res = 1;
+   }
+   
+   return res;
+}
+
 void sigroutine(int dunno){
     switch(dunno){
         case 2:
@@ -309,6 +368,9 @@ int main(int argc , char *argv[]){
                     break;
                     case 2:
                     lss(buf);
+                    break;
+                    case 3:
+                    cpp(buf);
                     break;
                     default:
                     printf("can not \n");

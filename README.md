@@ -16,3 +16,5 @@ my_shell is the complete project1 and the   XXXXXXXXXX{SYSTEM} are the important
 7.this one is the system commond ll {SYSTEM}
 
 8.this one is the a function that adjusts the console size  {SYSTEM}
+
+9.the cmd of cp
