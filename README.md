@@ -18,3 +18,5 @@ my_shell is the complete project1 and the   XXXXXXXXXX{SYSTEM} are the important
 8.this one is the a function that adjusts the console size  {SYSTEM}
 
 9.the cmd of cp
+
+10.judgment the leap years {C example}
