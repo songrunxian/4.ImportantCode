@@ -22,3 +22,7 @@ my_shell is the complete project1 and the   XXXXXXXXXX{SYSTEM} are the important
 10. judgment the leap years {C example}
 
 11. factorial {C example}
+
+shell1.sh This is my first shell program {shell Program} i want to use it to generate files
+
+
