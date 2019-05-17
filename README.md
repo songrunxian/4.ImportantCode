@@ -27,4 +27,6 @@ shell1.sh This is my first shell program {shell Program} i want to use it to gen
 
 12. use a famliy of functions to judge the numbers of digits {C example}
 
+13. read a string and count the number of characters[characters include blank space] {C example}
+
 
