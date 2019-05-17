@@ -25,4 +25,6 @@ my_shell is the complete project1 and the   XXXXXXXXXX{SYSTEM} are the important
 
 shell1.sh This is my first shell program {shell Program} i want to use it to generate files
 
+12. use a famliy of functions to judge the numbers of digits {C example}
+
 
