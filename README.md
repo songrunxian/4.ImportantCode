@@ -31,4 +31,7 @@ shell1.sh This is my first shell program {shell Program} i want to use it to gen
 
 14. practice of format string
 
+shell2.sh This is the second shell program to record the using time of the bash and write it to the log file
+
+
 
