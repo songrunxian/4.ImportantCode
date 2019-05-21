@@ -33,5 +33,6 @@ shell1.sh This is my first shell program {shell Program} i want to use it to gen
 
 shell2.sh This is the second shell program to record the using time of the bash and write it to the log file
 
+shell3.sh this is the third shell program to record the longest string in a text
 
 
