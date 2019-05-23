@@ -3,7 +3,7 @@ year=$1;
 
 function isleapyear() {
     year=$1
-    if [[ $[year%4] -eq 0 || $[year%100] -eq 0 ]]; then
+    if [[ $[year%4] -eq 0 || $[year%100] -ne 0 ]]; then
         echo 366;
     elif [[ $[year%400] -eq 0 ]]; then
         echo 366;
