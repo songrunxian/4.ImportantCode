@@ -35,4 +35,5 @@ shell2.sh This is the second shell program to record the using time of the bash 
 
 shell3.sh this is the third shell program to record the longest string in a text
 
+shell4.sh this is the shell program to record the sum days of the year
 
