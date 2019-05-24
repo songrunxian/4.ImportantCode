@@ -32,8 +32,10 @@ shell1.sh This is my first shell program {shell Program} i want to use it to gen
 14. practice of format string
 
 shell2.sh This is the second shell program to record the using time of the bash and write it to the log file
-
+f
 shell3.sh this is the third shell program to record the longest string in a text
 
 shell4.sh this is the shell program to record the sum days of the year
+
+shell5.sh this is the shell program of a clock
 
