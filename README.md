@@ -45,3 +45,5 @@ shell7.sh practice of prime_drying
 
 shell8.sh practice of line_drying
 
+shell9.sh use this program can split the text or directory and echo the longest three strings
+
