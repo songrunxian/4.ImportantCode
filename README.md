@@ -39,3 +39,9 @@ shell4.sh this is the shell program to record the sum days of the year
 
 shell5.sh this is the shell program of a clock
 
+shell6.sh practice of array
+
+shell7.sh practice of prime_drying
+
+shell8.sh practice of line_drying
+
