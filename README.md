@@ -37,7 +37,7 @@ shell3.sh this is the third shell program to record the longest string in a text
 
 shell4.sh this is the shell program to record the sum days of the year
 
-shell5.sh this is the shell program of a clock
+shell5.sh this is the shell program of a clock lv1
 
 shell6.sh practice of array
 
@@ -45,5 +45,9 @@ shell7.sh practice of prime_drying
 
 shell8.sh practice of line_drying
 
-shell9.sh use this program can split the text or directory and echo the longest three strings
+shell9.sh use this program can split the text or directory and echo the longest three strings lv1
+
+shell10.sh this is the shell program of a clock lv2
+
+shell11.sh use this program can split the text or directory and echo the longest three strings lv2
 
