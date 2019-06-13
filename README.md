@@ -51,3 +51,5 @@ shell10.sh this is the shell program of a clock lv2
 
 shell11.sh use this program can split the text or directory and echo the longest three strings lv2
 
+15. practice of direct array
+
