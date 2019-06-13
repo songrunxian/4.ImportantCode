@@ -53,3 +53,5 @@ shell11.sh use this program can split the text or directory and echo the longest
 
 15. practice of direct array
 
+16. one statics of characters
+
