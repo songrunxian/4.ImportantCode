@@ -59,3 +59,9 @@ shell11.sh use this program can split the text or directory and echo the longest
 
 18. recursion1
 
+19. client user
+
+20. host 
+
+21. practice of multithreadprogramming
+
